@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Card, CardContent } from '@/components/ui/card';
 
 // Service data
 const serviceData = {
@@ -249,54 +251,56 @@ const ServicePage = ({ serviceType }: ServicePageProps) => {
         </section>
       ))}
       
-      {/* Project Highlights Section */}
-      <section className="section-padding bg-secondary text-white">
-        <div className="container-wide">
-          <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-            <h2 className="heading-lg mb-4">Our {service.title} Projects</h2>
-            <p className="text-lg opacity-90">
-              Explore our successful projects that showcase our expertise and commitment to delivering exceptional results.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {service.projects.map((project, index) => (
-              <div 
-                key={index} 
-                className="bg-primary-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="h-52 overflow-hidden">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover"
-                  />
+      {/* Individual Project Sections - Each project gets its own section */}
+      {service.projects.map((project, index) => (
+        <section key={index} className={`section-padding ${index % 2 === 0 ? 'bg-secondary text-white' : 'bg-white text-secondary'}`}>
+          <div className="container-wide">
+            <div className="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+              <h2 className="heading-lg mb-4">{project.title}</h2>
+            </div>
+            
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+              <div data-aos={`fade-${index % 2 === 0 ? 'right' : 'left'}`} className="h-full">
+                <Card className={`h-full overflow-hidden border-none ${index % 2 === 0 ? 'bg-primary-800' : 'bg-secondary'} hover:shadow-lg transition-all duration-300`}>
+                  <div className="h-64 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </Card>
+              </div>
+              
+              <div data-aos={`fade-${index % 2 === 0 ? 'left' : 'right'}`} className="flex flex-col h-full">
+                <div className="flex-grow">
+                  <p className="mb-6 text-lg leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <ul className="space-y-4 mb-8">
+                    {[1, 2, 3].map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <CheckCircle className={`h-5 w-5 shrink-0 mt-0.5 ${index % 2 === 0 ? 'text-primary-300' : 'text-primary'}`} />
+                        <p>Key achievement or feature of this {project.title.toLowerCase()} project</p>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-                  <p className="mb-4 opacity-90">{project.description}</p>
+                
+                <div className="mt-6">
                   <Link to={`/work/${serviceType}`}>
-                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-primary-800">
-                      View Project
+                    <Button variant={index % 2 === 0 ? "outline" : "default"} className={`${index % 2 === 0 ? 'border-white text-white hover:bg-white hover:text-primary-800' : ''} group`}>
+                      View Project Details
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </Link>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-          
-          <div className="text-center mt-12" data-aos="fade-up">
-            <Link to={`/work/${serviceType}`}>
-              <Button className="btn btn-primary group">
-                View All Projects
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      ))}
       
       {/* CTA Section */}
       <section className="section-padding bg-primary-100">
