@@ -1,10 +1,11 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 // Work data
 const workData = {
@@ -181,18 +182,15 @@ const WorkPage = ({ workType }: WorkPageProps) => {
 
   useEffect(() => {
     // Initialize AOS animation library
-    if (typeof window !== 'undefined') {
-      const AOS = require('aos');
-      AOS.init({
-        duration: 800,
-        once: false,
-        mirror: true,
-        offset: 100,
-      });
-      
-      // Scroll to top on page load
-      window.scrollTo(0, 0);
-    }
+    AOS.init({
+      duration: 800,
+      once: false,
+      mirror: true,
+      offset: 100,
+    });
+    
+    // Scroll to top on page load
+    window.scrollTo(0, 0);
   }, []);
 
   return (
