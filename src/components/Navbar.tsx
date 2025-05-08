@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,10 +30,9 @@ const Navbar = () => {
       href: '#services',
       hasDropdown: true,
       dropdown: [
-        { name: 'SEO & Content Marketing', href: '#services' },
-        { name: 'Paid Media Advertising', href: '#services' },
-        { name: 'Social Media Marketing', href: '#services' },
-        { name: 'Email Marketing', href: '#services' }
+        { name: 'Import & Export', href: '/services/import-export' },
+        { name: 'Construction', href: '/services/construction' },
+        { name: 'Information Technology', href: '/services/information-technology' }
       ]
     },
     { 
@@ -40,14 +40,13 @@ const Navbar = () => {
       href: '#work',
       hasDropdown: true,
       dropdown: [
-        { name: 'Case Studies', href: '#work' },
-        { name: 'Success Stories', href: '#work' },
-        { name: 'Industries Served', href: '#work' }
+        { name: 'Import & Export Work', href: '/work/import-export' },
+        { name: 'Construction Work', href: '/work/construction' },
+        { name: 'IT Work', href: '/work/information-technology' }
       ]
     },
-    { name: 'About', href: '#about', hasDropdown: false },
-    { name: 'Blog', href: '#blog', hasDropdown: false },
-    { name: 'Contact', href: '#contact', hasDropdown: false },
+    { name: 'About', href: '/about', hasDropdown: false },
+    { name: 'Contact', href: '/contact', hasDropdown: false },
   ];
 
   const handleDropdownToggle = (name: string) => {
@@ -64,26 +63,37 @@ const Navbar = () => {
     }`}>
       <div className="container-wide flex justify-between items-center">
         <div className="flex items-center">
-          <a href="/" className="text-2xl font-bold flex items-center">
+          <Link to="/" className="text-2xl font-bold flex items-center">
             <span className="text-primary font-playfair">Digital</span>
             <span className="font-playfair ml-1 text-white transition-colors duration-300" 
               style={{ color: isScrolled ? '#1A1F2C' : 'white' }}>Silk</span>
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group">
-              <button 
-                onClick={() => link.hasDropdown && handleDropdownToggle(link.name)}
-                className={`font-medium flex items-center gap-1 hover:text-primary transition-colors duration-200 ${
-                  isScrolled ? 'text-gray-800' : 'text-white'
-                }`}
-              >
-                {link.name}
-                {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
-              </button>
+              {link.hasDropdown ? (
+                <button 
+                  onClick={() => handleDropdownToggle(link.name)}
+                  className={`font-medium flex items-center gap-1 hover:text-primary transition-colors duration-200 ${
+                    isScrolled ? 'text-gray-800' : 'text-white'
+                  }`}
+                >
+                  {link.name}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              ) : (
+                <Link 
+                  to={link.href}
+                  className={`font-medium hover:text-primary transition-colors duration-200 ${
+                    isScrolled ? 'text-gray-800' : 'text-white'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              )}
               
               {link.hasDropdown && (
                 <div className={`absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top ${
@@ -91,13 +101,14 @@ const Navbar = () => {
                 }`}>
                   <div className="py-2">
                     {link.dropdown?.map((item) => (
-                      <a 
+                      <Link 
                         key={item.name} 
-                        href={item.href} 
+                        to={item.href} 
                         className="block px-4 py-2 text-gray-800 hover:bg-primary-100 hover:text-primary transition-colors duration-200"
+                        onClick={() => setActiveDropdown(null)}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -132,13 +143,22 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <div key={link.name} className="border-b border-gray-100 pb-3">
                 <div className="flex justify-between items-center">
-                  <a 
-                    href={link.href}
-                    className="font-medium text-gray-800"
-                    onClick={() => !link.hasDropdown && setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
+                  {link.hasDropdown ? (
+                    <button 
+                      className="font-medium text-gray-800"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link 
+                      to={link.href}
+                      className="font-medium text-gray-800"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                  
                   {link.hasDropdown && (
                     <button 
                       onClick={() => handleDropdownToggle(link.name)}
@@ -154,14 +174,14 @@ const Navbar = () => {
                     activeDropdown === link.name ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                   }`}>
                     {link.dropdown?.map((item) => (
-                      <a 
+                      <Link 
                         key={item.name} 
-                        href={item.href} 
+                        to={item.href} 
                         className="block py-1 text-gray-600 hover:text-primary text-sm"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
