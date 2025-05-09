@@ -1,8 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu';
+import { Briefcase, Building2, Monitor } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,8 +26,8 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { 
-      name: 'Services', 
+    {
+      name: 'Services',
       href: '#services',
       hasDropdown: true,
       dropdown: [
@@ -35,8 +36,8 @@ const Navbar = () => {
         { name: 'Information Technology', href: '/services/information-technology' }
       ]
     },
-    { 
-      name: 'Work', 
+    {
+      name: 'Work',
       href: '#work',
       hasDropdown: true,
       dropdown: [
@@ -58,15 +59,12 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-    }`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
+      }`}>
       <div className="container-wide flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="text-2xl font-bold flex items-center">
-            <span className="text-primary font-playfair">Digital</span>
-            <span className="font-playfair ml-1 text-white transition-colors duration-300" 
-              style={{ color: isScrolled ? '#1A1F2C' : 'white' }}>Silk</span>
+            <img src="/public/prismLogo.png" alt="" height={350} width={350} />
           </Link>
         </div>
 
@@ -74,36 +72,68 @@ const Navbar = () => {
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
             <div key={link.name} className="relative group">
-              {link.hasDropdown ? (
-                <button 
+              {link.name === 'Services' ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      className={`font-medium flex items-center gap-1 hover:text-primary transition-colors duration-200 ${isScrolled ? 'text-gray-800' : 'text-white'
+                        }`}
+                    >
+                      {link.name}
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="mt-2 w-72 rounded-2xl border-none bg-white/80 backdrop-blur-lg shadow-2xl p-2 animate-fade-in">
+                    <DropdownMenuItem asChild>
+                      <Link to="/services/import-export" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary-100 hover:text-primary transition-colors duration-200">
+                        <Briefcase className="h-5 w-5 text-primary" />
+                        <span className="font-semibold">Import & Export</span>
+
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/services/construction" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary-100 hover:text-primary transition-colors duration-200">
+                        <Building2 className="h-5 w-5 text-primary" />
+                        <span className="font-semibold">Construction</span>
+
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/services/information-technology" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-primary-100 hover:text-primary transition-colors duration-200">
+                        <Monitor className="h-5 w-5 text-primary" />
+                        <span className="font-semibold">Information Technology</span>
+
+                      </Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : link.hasDropdown ? (
+                <button
                   onClick={() => handleDropdownToggle(link.name)}
-                  className={`font-medium flex items-center gap-1 hover:text-primary transition-colors duration-200 ${
-                    isScrolled ? 'text-gray-800' : 'text-white'
-                  }`}
+                  className={`font-medium flex items-center gap-1 hover:text-primary transition-colors duration-200 ${isScrolled ? 'text-gray-800' : 'text-white'
+                    }`}
                 >
                   {link.name}
                   <ChevronDown className="h-4 w-4" />
                 </button>
               ) : (
-                <Link 
+                <Link
                   to={link.href}
-                  className={`font-medium hover:text-primary transition-colors duration-200 ${
-                    isScrolled ? 'text-gray-800' : 'text-white'
-                  }`}
+                  className={`font-medium hover:text-primary transition-colors duration-200 ${isScrolled ? 'text-gray-800' : 'text-white'
+                    }`}
                 >
                   {link.name}
                 </Link>
               )}
-              
-              {link.hasDropdown && (
-                <div className={`absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top ${
-                  activeDropdown === link.name ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
-                }`}>
+
+              {link.hasDropdown && link.name !== 'Services' && (
+                <div className={`absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-md overflow-hidden transition-all duration-300 transform origin-top ${activeDropdown === link.name ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0'
+                  }`}>
                   <div className="py-2">
                     {link.dropdown?.map((item) => (
-                      <Link 
-                        key={item.name} 
-                        to={item.href} 
+                      <Link
+                        key={item.name}
+                        to={item.href}
                         className="block px-4 py-2 text-gray-800 hover:bg-primary-100 hover:text-primary transition-colors duration-200"
                         onClick={() => setActiveDropdown(null)}
                       >
@@ -116,9 +146,8 @@ const Navbar = () => {
             </div>
           ))}
           <div className="hidden xl:flex items-center gap-4">
-            <a href="tel:+11234567890" className={`flex items-center gap-2 ${
-              isScrolled ? 'text-gray-800' : 'text-white'
-            } hover:text-primary transition-colors duration-200`}>
+            <a href="tel:+11234567890" className={`flex items-center gap-2 ${isScrolled ? 'text-gray-800' : 'text-white'
+              } hover:text-primary transition-colors duration-200`}>
               <Phone className="h-4 w-4" />
               <span>(123) 456-7890</span>
             </a>
@@ -136,21 +165,20 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-50 transition-transform duration-300 transform ${
-          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } overflow-y-auto`}>
+        <div className={`lg:hidden fixed top-[72px] left-0 right-0 bottom-0 bg-white z-50 transition-transform duration-300 transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          } overflow-y-auto`}>
           <div className="px-4 py-5 space-y-4">
             {navLinks.map((link) => (
               <div key={link.name} className="border-b border-gray-100 pb-3">
                 <div className="flex justify-between items-center">
                   {link.hasDropdown ? (
-                    <button 
+                    <button
                       className="font-medium text-gray-800"
                     >
                       {link.name}
                     </button>
                   ) : (
-                    <Link 
+                    <Link
                       to={link.href}
                       className="font-medium text-gray-800"
                       onClick={() => setIsMenuOpen(false)}
@@ -158,9 +186,9 @@ const Navbar = () => {
                       {link.name}
                     </Link>
                   )}
-                  
+
                   {link.hasDropdown && (
-                    <button 
+                    <button
                       onClick={() => handleDropdownToggle(link.name)}
                       className="p-2"
                     >
@@ -168,15 +196,14 @@ const Navbar = () => {
                     </button>
                   )}
                 </div>
-                
+
                 {link.hasDropdown && (
-                  <div className={`mt-2 pl-4 space-y-2 transition-all duration-300 ${
-                    activeDropdown === link.name ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-                  }`}>
+                  <div className={`mt-2 pl-4 space-y-2 transition-all duration-300 ${activeDropdown === link.name ? 'max-h-56 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                    }`}>
                     {link.dropdown?.map((item) => (
-                      <Link 
-                        key={item.name} 
-                        to={item.href} 
+                      <Link
+                        key={item.name}
+                        to={item.href}
                         className="block py-1 text-gray-600 hover:text-primary text-sm"
                         onClick={() => setIsMenuOpen(false)}
                       >

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -12,7 +11,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative bg-gradient-primary min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative bg-gradient-primary min-h-[115vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-[url('/hero-pattern.svg')] bg-cover opacity-10"></div>
       
       {/* Animated background elements */}
@@ -26,7 +25,7 @@ const HeroSection = () => {
           <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
             <h1 className="heading-xl text-white mb-8">
               Digital Marketing <br />
-              <span className="text-primary-300 font-bold">That Drives Growth</span>
+              <span className="text-4xl font-bold bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">That Drives Growth</span>
             </h1>
             <p className="text-white text-lg mb-8 opacity-90 max-w-xl leading-relaxed">
               Our data-driven digital marketing strategies deliver measurable results. 

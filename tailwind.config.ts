@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -124,7 +123,7 @@ export default {
 				"scale-in": "scale-in 0.3s ease-out",
 			},
 			backgroundImage: {
-				'gradient-primary': 'linear-gradient(90deg, #8B5CF6 0%, #6E59A5 100%)',
+				'gradient-primary': 'linear-gradient(90deg, #000000 0%, #222222 100%)',
 				'gradient-dark': 'linear-gradient(90deg, #1A1F2C 0%, #2D3748 100%)',
 			},
 		}
