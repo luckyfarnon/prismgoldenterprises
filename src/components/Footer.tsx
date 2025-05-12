@@ -1,14 +1,17 @@
-
 import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [workOpen, setWorkOpen] = useState(false);
+
   return (
     <footer className="bg-secondary text-white">
       <div className="container-wide py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-6 font-playfair">
-              <span className="text-primary-300">Digital</span>Silk
+              Prism<span className="bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Gold</span>Enterprises
             </h3>
             <p className="mb-6 opacity-80">
               We're a full-service digital marketing agency focused on helping businesses grow through creative and data-driven strategies.
@@ -18,7 +21,7 @@ const Footer = () => {
                 <a 
                   href="#" 
                   key={index}
-                  className="bg-primary-800 hover:bg-primary-700 p-2 rounded-full transition-colors duration-200"
+                  className="bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] text-white hover:bg-primary-100 group p-2 rounded-full transition-colors duration-200"
                   aria-label={`Social media link ${index + 1}`}
                 >
                   <Icon size={18} />
@@ -30,30 +33,96 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-6">Services</h4>
             <ul className="space-y-3">
-              {["SEO", "Content Marketing", "Paid Media", "Social Media", "Email Marketing", "Analytics & Reporting"].map((item) => (
-                <li key={item} className="group">
-                  <a href="#" className="opacity-80 hover:opacity-100 transition-opacity group-hover:text-primary flex items-center">
-                    <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li className="group">
+                <Link
+                  to="/services/import-export"
+                  className="flex items-center transition-all duration-200 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ae8625] group-hover:via-[#ae8625] group-hover:to-[#edc967] group-hover:bg-clip-text"
+                >
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
+                  Import & Export
+                </Link>
+              </li>
+              <li className="group">
+                <Link
+                  to="/services/construction"
+                  className="flex items-center transition-all duration-200 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ae8625] group-hover:via-[#ae8625] group-hover:to-[#edc967] group-hover:bg-clip-text"
+                >
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
+                  Construction
+                </Link>
+              </li>
+              <li className="group">
+                <Link
+                  to="/services/information-technology"
+                  className="flex items-center transition-all duration-200 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ae8625] group-hover:via-[#ae8625] group-hover:to-[#edc967] group-hover:bg-clip-text"
+                >
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
+                  Information Technology
+                </Link>
+              </li>
             </ul>
           </div>
+
           
           <div>
             <h4 className="font-bold text-lg mb-6">Company</h4>
             <ul className="space-y-3">
-              {["About Us", "Our Work", "Blog", "Case Studies", "Careers", "Contact Us"].map((item) => (
-                <li key={item} className="group">
-                  <a href="#" className="opacity-80 hover:opacity-100 transition-opacity group-hover:text-primary flex items-center">
-                    <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li className="group">
+                <Link
+                  to="/about"
+                  className="flex items-center transition-all duration-200 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ae8625] group-hover:via-[#ae8625] group-hover:to-[#edc967] group-hover:bg-clip-text"
+                >
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
+                  About Us
+                </Link>
+              </li>
+              <li className="group">
+                <Link
+                  to="/contact"
+                  className="flex items-center transition-all duration-200 text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-[#ae8625] group-hover:via-[#ae8625] group-hover:to-[#edc967] group-hover:bg-clip-text"
+                >
+                  <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 -ml-5 mr-1 transition-all duration-200" />
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <div className="flex items-center w-full text-left text-white font-medium">
+                  <ChevronRight className="h-4 w-4 mr-1" />
+                  Our Work
+                </div>
+                <ul
+                  id="footer-work-submenu"
+                  className="pl-6"
+                >
+                  <li>
+                    <a
+                      href="/work/import-export"
+                      className="block py-1 text-white hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors duration-200"
+                    >
+                      Import & Export
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/work/construction"
+                      className="block py-1 text-white hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors duration-200"
+                    >
+                      Construction
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/work/information-technology"
+                      className="block py-1 text-white hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors duration-200"
+                    >
+                      Information Technology
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </div>
+
           
           <div>
             <h4 className="font-bold text-lg mb-6">Contact</h4>
@@ -62,10 +131,10 @@ const Footer = () => {
               <p className="mb-3 opacity-80">New York, NY 10001</p>
               <p className="mb-3 opacity-80">United States</p>
               <p className="mb-3">
-                <a href="tel:+11234567890" className="opacity-80 hover:opacity-100 hover:text-primary transition-colors duration-200">(123) 456-7890</a>
+                <a href="tel:+11234567890" className="text-white transition-all duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text">(123) 456-7890</a>
               </p>
               <p>
-                <a href="mailto:hello@digitalsilk.com" className="opacity-80 hover:opacity-100 hover:text-primary transition-colors duration-200">hello@digitalsilk.com</a>
+                <a href="mailto:abc@gmail.com" className="text-white transition-all duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text">abc@gmail.com</a>
               </p>
             </address>
             
@@ -74,9 +143,9 @@ const Footer = () => {
                 <input 
                   type="email" 
                   placeholder="Your email" 
-                  className="bg-primary-800 text-white rounded-l-md px-4 py-2 w-full focus:outline-none"
+                  className="bg-white text-black rounded-l-md px-4 py-2 w-full focus:outline-none"
                 />
-                <button className="bg-primary text-white px-3 rounded-r-md hover:bg-primary-700 transition-colors duration-200">
+                <button className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] text-black hover:bg-primary-100 group px-3 rounded-r-md transition-colors duration-200">
                   <ArrowRight className="h-5 w-5" />
                 </button>
               </form>
@@ -86,13 +155,13 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="opacity-70 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} DigitalSilk. All rights reserved.
+          <p className="opacity-70 text-md mb-4 md:mb-0">
+            © {new Date().getFullYear()} Prism<span className="bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Gold</span>Enterprises. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm opacity-70">
-            <a href="#" className="hover:opacity-100 transition-opacity hover:text-primary">Privacy Policy</a>
-            <a href="#" className="hover:opacity-100 transition-opacity hover:text-primary">Terms of Service</a>
-            <a href="#" className="hover:opacity-100 transition-opacity hover:text-primary">Sitemap</a>
+            <a href="#" className="text-white transition-all duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text">Privacy Policy</a>
+            <a href="#" className="text-white transition-all duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text">Terms of Service</a>
+            <a href="#" className="text-white transition-all duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text">Sitemap</a>
           </div>
         </div>
       </div>

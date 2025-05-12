@@ -1,14 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [activeBtn, setActiveBtn] = useState<'get-started' | 'view-work'>('get-started');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     // Trigger animations after component mounts
     setIsVisible(true);
-  }, []);
+    // Check if we need to scroll to a section after navigation
+    const scrollTarget = sessionStorage.getItem('scrollTarget');
+    if (scrollTarget && location.pathname === '/') {
+      const el = document.getElementById(scrollTarget);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        sessionStorage.removeItem('scrollTarget');
+      }
+    }
+  }, [location]);
+
+  const handleScrollOrNavigate = (targetId: string, route: string) => {
+    if (location.pathname === route) {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      sessionStorage.setItem('scrollTarget', targetId);
+      navigate(route);
+    }
+  };
 
   return (
     <section className="relative bg-gradient-primary min-h-[115vh] flex items-center overflow-hidden">
@@ -22,45 +47,77 @@ const HeroSection = () => {
       
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
-            <h1 className="heading-xl text-white mb-8">
-              Digital Marketing <br />
-              <span className="text-4xl font-bold bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">That Drives Growth</span>
+          <div className={`${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}>
+            <p className="text-white text-md mb-2" style={{ letterSpacing: '0.1em' }}>Call it what you want</p>
+            <h1 className="heading-xl text-white mb-6 bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">We call it</span> <br/>
+              <span style={{ letterSpacing: '0.10em' }} className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">Prism Gold Enterprises</span>
             </h1>
-            <p className="text-white text-lg mb-8 opacity-90 max-w-xl leading-relaxed">
+            <p className="text-white text-lg mb-6 opacity-90 max-w-xl leading-relaxed">
               Our data-driven digital marketing strategies deliver measurable results. 
               We combine creativity with performance to help your business thrive in the competitive digital landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button className="btn btn-primary bg-white text-primary hover:bg-primary-100 group">
-                Get Started
-                <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <Button
+                variant="outline"
+                className={`btn-outline text-black border-none bg-white group relative overflow-hidden ${activeBtn === 'get-started' ? 'bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] text-black' : ''}`}
+                onClick={() => {
+                  setActiveBtn('get-started');
+                  handleScrollOrNavigate('contact-form-section', '/contact');
+                }}
+                onMouseEnter={() => setActiveBtn('get-started')}
+              >
+                <span className="relative z-10 transition-colors duration-300">
+                  Get Started
+                </span>
+                {activeBtn === 'get-started' && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] opacity-100 transition-opacity duration-300 z-0 rounded-md"></span>
+                )}
+                <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 relative z-10" />
               </Button>
-              <Button variant="outline" className="btn-outline border-white text-white hover:bg-white hover:text-primary group">
-                View Our Work
-                <ChevronRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <Button
+                variant="outline"
+                className={`btn-outline text-black border-none bg-white group relative overflow-hidden ${activeBtn === 'view-work' ? 'bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] text-black' : ''}`}
+                onClick={() => {
+                  setActiveBtn('view-work');
+                  handleScrollOrNavigate('custom-services-section', '/');
+                }}
+                onMouseEnter={() => setActiveBtn('view-work')}
+              >
+                <span className="relative z-10 transition-colors duration-300">
+                  View Our Work
+                </span>
+                {activeBtn === 'view-work' && (
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] opacity-100 transition-opacity duration-300 z-0 rounded-md"></span>
+                )}
+                <ChevronRight className="ml-1 h-4 w-4 relative z-10 transition-transform duration-300" />
               </Button>
             </div>
             <div className="mt-8">
               <p className="text-primary-200 font-medium mb-3">Trusted by leading brands:</p>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className={`transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-80' : 'translate-y-8 opacity-0'}`} style={{ transitionDelay: `${i * 200 + 500}ms` }}>
-                  <img src="https://placehold.co/120x40/ffffff/1A1F2C?text=BRAND" alt="Client" className="h-8" />
-                  </div>
-                ))}
+              <div className="flex justify-start items-center">
+                <img src="/partner.png" alt="Partner Brand" className="h-15 w-full max-w-3xl sm:max-w-4xl md:max-w-4xl lg:max-w-4xl" />
               </div>
             </div>
           </div>
 
-          <div className={`hidden lg:block transition-all duration-1000 transform ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-12 opacity-0'}`} style={{ transitionDelay: '300ms' }}>
+          <div className={`hidden lg:block ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`} style={{ transitionDelay: '300ms' }}>
             <div className="relative">
-              <div className="absolute -top-6 -left-6 w-full h-full border-2 border-primary-300 rounded-lg"></div>
-              <img 
-                src="https://placehold.co/600x500/1A1F2C/ffffff?text=Marketing+Dashboard" 
-                alt="Digital Marketing Dashboard" 
+              <div className="absolute -top-6 -left-6 w-full h-full rounded-lg p-1" style={{ background: 'linear-gradient(90deg, #ae8625 0%, #f7ef8a 50%, #edc967 100%)' }}>
+                <div className="w-full h-full bg-black rounded-lg"></div>
+              </div>
+              <video 
+                src="/prism-vid.mp4" 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
                 className="rounded-lg shadow-2xl relative z-10"
-              />
+                width={600}
+                height={500}
+                style={{ objectFit: 'cover', width: '100%', height: '100%', maxHeight: 500 }}
+              >
+              </video>
               <div className="absolute -bottom-4 -right-4 p-4 bg-white rounded-lg shadow-lg z-20 w-48 animate-pulse">
                 <div className="flex items-center mb-2">
                   <div className="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
@@ -68,7 +125,6 @@ const HeroSection = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm font-bold text-secondary">+247%</span>
-                  <span className="text-xs text-primary">ROI</span>
                 </div>
               </div>
             </div>

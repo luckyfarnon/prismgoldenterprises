@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
@@ -70,10 +69,11 @@ const TestimonialsSection = () => {
   }, [activeIndex, isAnimating]);
 
   return (
-    <section className="section-padding bg-primary-100 overflow-hidden">
+    <section className="section-padding bg-white overflow-hidden">
       <div className="container-wide">
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-4">What Our Clients Say</h2>
+        <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">What Our Clients Say</h2>
+          <h2 className="heading-lg mb-4"></h2>
           <p className="text-muted-foreground text-lg">
             Don't just take our word for it. Here's what our clients have to say about working with Digital Silk.
           </p>
@@ -143,7 +143,7 @@ const TestimonialsSection = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? 'bg-primary w-6' : 'bg-primary-300'
+                  index === activeIndex ? 'bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] text-black group w-6' : 'bg-black'
                 }`}
                 aria-label={`Testimonial ${index + 1}`}
               ></button>
@@ -152,25 +152,15 @@ const TestimonialsSection = () => {
         </div>
 
         <div className="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
-          <h3 className="heading-md mb-6">Trusted By Industry Leaders</h3>
+          <h3 className="heading-md mb-6 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Trusted By Industry Leaders</h3>
         </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center" data-aos="fade-up">
-          {clients.map((client, index) => (
-            <div 
-              key={index} 
-              className="flex justify-center"
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <img 
-                src={client} 
-                alt={`Client ${index + 1}`} 
-                className="h-12 opacity-70 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
-              />
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className="w-full" data-aos="fade-up">
+        <img 
+          src="/brand.png" 
+          alt="Brand" 
+          className="w-full h-auto object-contain my-8 block mx-0" 
+        />
       </div>
     </section>
   );

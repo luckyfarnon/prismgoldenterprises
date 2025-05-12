@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
@@ -8,6 +7,8 @@ import ResultsSection from '../components/ResultsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
 import CtaSection from '../components/CtaSection';
 import Footer from '../components/Footer';
+import ImportAndExportSection from '../components/ImportAndExportSection';
+import ConstructionSection from '../components/ConstructionSection';
 
 // AOS animation library
 import AOS from 'aos';
@@ -29,9 +30,11 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <ServicesSection />
+      <ImportAndExportSection/>
+      <ConstructionSection />
       <CustomServicesSection />
-      <ResultsSection />
       <TestimonialsSection />
+      <ResultsSection />
       <CtaSection />
       <Footer />
     </div>

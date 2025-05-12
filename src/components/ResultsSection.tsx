@@ -1,5 +1,4 @@
-
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { 
   LineChart, 
   Line, 
@@ -46,18 +45,66 @@ const stats = [
   },
 ];
 
+// Custom hook for count up animation
+function useCountUp(end: number, start: boolean, duration = 1500) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startVal = 0;
+    const increment = end / (duration / 16);
+    let frame: number;
+    function animate() {
+      startVal += increment;
+      if (startVal < end) {
+        setCount(Number(startVal.toFixed(2)));
+        frame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    }
+    animate();
+    return () => cancelAnimationFrame(frame);
+  }, [end, duration, start]);
+  return count;
+}
+
+// Helper to extract number and suffix
+function parseStatValue(value: string) {
+  const match = value.match(/([\d.]+)([\w%+]*)/);
+  if (!match) return { number: 0, suffix: '' };
+  return { number: parseFloat(match[1]), suffix: match[2] };
+}
+
 const ResultsSection = () => {
   const [activeStep, setActiveStep] = useState(1);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [startCount, setStartCount] = useState(false);
   
   const handleStepChange = (step: number) => {
     setActiveStep(step);
   };
 
+  useEffect(() => {
+    const observer = new window.IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setStartCount(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="section-padding bg-secondary text-white">
+    <section ref={sectionRef} className="section-padding bg-black text-white">
       <div className="container-wide">
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-4">Driving Real Results</h2>
+          <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Driving Real Results</h2>
           <p className="text-lg opacity-90">
             Our data-driven approach delivers measurable outcomes for businesses of all sizes.
             Here's what we've achieved for our clients:
@@ -65,23 +112,27 @@ const ResultsSection = () => {
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {stats.map((stat, index) => (
-            <div 
-              key={index} 
-              className="text-center" 
-              data-aos="fade-up"
-              data-aos-delay={index * 100}
-            >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-300 mb-2">
-                {stat.value}
+          {stats.map((stat, index) => {
+            const { number, suffix } = parseStatValue(stat.value);
+            const animated = useCountUp(number, startCount);
+            return (
+              <div 
+                key={index} 
+                className="text-center" 
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent mb-2">
+                  {suffix === 'x' ? `${animated.toFixed(1)}x` : `${Math.round(animated)}${suffix}`}
+                </div>
+                <p className="text-sm md:text-base mb-2">{stat.label}</p>
+                <p className="text-xs md:text-sm opacity-60">{stat.description}</p>
               </div>
-              <p className="text-sm md:text-base mb-2">{stat.label}</p>
-              <p className="text-xs md:text-sm opacity-60">{stat.description}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="bg-primary-800 rounded-lg p-8 lg:p-12" data-aos="fade-up">
+        <div className="bg-secondary rounded-lg p-8 lg:p-12" data-aos="fade-up">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="heading-md mb-6">Our Proven Process</h3>
@@ -116,7 +167,7 @@ const ResultsSection = () => {
                     onClick={() => handleStepChange(i + 1)}
                   >
                     <div className={`rounded-full ${
-                      activeStep === i + 1 ? 'bg-primary-500' : 'bg-primary-700'
+                      activeStep === i + 1 ? 'bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] text-black group' : 'bg-white'
                     } text-white w-8 h-8 flex items-center justify-center shrink-0 transition-colors duration-300`}>
                       {i + 1}
                     </div>

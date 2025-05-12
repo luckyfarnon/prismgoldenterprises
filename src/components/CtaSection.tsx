@@ -44,7 +44,7 @@ const CtaSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-gradient-primary text-white relative overflow-hidden">
+    <section id="contact" className="section-padding bg-white text-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-[-10%] right-[-5%] w-80 h-80 bg-white opacity-5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-[-10%] left-[-5%] w-80 h-80 bg-white opacity-5 rounded-full blur-3xl"></div>
@@ -52,7 +52,7 @@ const CtaSection = () => {
       <div className="container-wide relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div data-aos="fade-right">
-            <h2 className="heading-lg mb-4">Ready to Grow Your Business?</h2>
+            <h2 className="heading-lg mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Ready to Grow Your Business?</h2>
             <p className="text-lg mb-8 opacity-90 max-w-xl">
               Let's discuss how our digital marketing services can help you achieve your business goals. 
               Fill out the form and we'll be in touch shortly.
@@ -90,7 +90,7 @@ const CtaSection = () => {
                   "Data-driven strategy and optimization"
                 ].map((benefit, index) => (
                   <li key={index} className="flex items-center gap-2">
-                    <CheckCircle className="h-5 w-5 text-primary-300 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-[#ae8625] shrink-0" />
                     <span>{benefit}</span>
                   </li>
                 ))}
@@ -99,8 +99,8 @@ const CtaSection = () => {
           </div>
           
           <div data-aos="fade-left">
-            <div className="bg-white rounded-lg shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-secondary mb-6">Get a Free Consultation</h3>
+            <div className="bg-secondary rounded-lg shadow-xl p-8">
+              <h3 className="text-2xl font-bold text-white mb-6">Get a Free Consultation</h3>
               
               <form onSubmit={handleSubmit} className="relative">
                 {isSubmitted ? (
@@ -114,7 +114,7 @@ const CtaSection = () => {
                 ) : (
                   <div className="space-y-4">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-200 mb-1">
                         Full Name
                       </label>
                       <Input
@@ -130,7 +130,7 @@ const CtaSection = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-200 mb-1">
                         Email Address
                       </label>
                       <Input
@@ -147,7 +147,7 @@ const CtaSection = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="company" className="block text-sm font-medium text-gray-200 mb-1">
                         Company
                       </label>
                       <Input
@@ -162,7 +162,7 @@ const CtaSection = () => {
                     </div>
                     
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-200 mb-1">
                         How can we help?
                       </label>
                       <Textarea
@@ -179,7 +179,7 @@ const CtaSection = () => {
                     
                     <Button 
                       type="submit" 
-                      className="w-full btn btn-primary group"
+                      className="w-full bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] text-black hover:bg-primary-100 group"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? "Submitting..." : "Submit Request"}

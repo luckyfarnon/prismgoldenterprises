@@ -1,8 +1,8 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -37,51 +37,19 @@ const services = [
       "Community management",
       "Influencer partnerships"
     ]
-  },
-  {
-    title: "Email Marketing",
-    description: "Nurture leads and drive conversions with personalized email campaigns.",
-    icon: "📧",
-    features: [
-      "Automation setup",
-      "Segmentation strategies", 
-      "Campaign design & copywriting",
-      "Performance analytics"
-    ]
-  },
-  {
-    title: "Analytics & Data",
-    description: "Make data-driven decisions with comprehensive analytics and reporting.",
-    icon: "📊",
-    features: [
-      "Custom dashboard creation",
-      "Conversion tracking setup",
-      "Data visualization",
-      "Actionable insights reporting"
-    ]
-  },
-  {
-    title: "Conversion Rate Optimization",
-    description: "Maximize your website's performance with strategic CRO techniques.",
-    icon: "🎯",
-    features: [
-      "A/B testing",
-      "User journey optimization",
-      "Landing page optimization",
-      "Funnel analysis"
-    ]
   }
 ];
 
 const ServicesSection = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <section id="services" className="section-padding bg-white overflow-hidden">
       <div className="container-wide">
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-          <h2 className="heading-lg mb-4">Digital Marketing Services</h2>
-          <h3 className="heading-md text-primary mb-6">Tailored to Your Business Goals</h3>
+          <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Information Technology Services</h2>
+          <h3 className="heading-lg mb-6">Tailored to Your Business Goals</h3>
           <p className="text-muted-foreground text-lg">
             Our comprehensive suite of digital marketing services helps businesses grow their online presence,
             engage with their audience, and drive measurable results.
@@ -92,7 +60,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className={`card transition-all duration-300 ${activeCard === index ? 'transform -translate-y-2 shadow-xl' : 'card-hover'}`}
+              className={`card`}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
               data-aos="fade-up"
@@ -107,24 +75,24 @@ const ServicesSection = () => {
                   {service.description}
                 </CardDescription>
                 
-                {activeCard === index && (
-                  <div className="space-y-2 animate-fade-in pt-3">
+                {activeCard === index ? (
+                  <div className="space-y-2 pt-3">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2">
-                        <CheckCircle className="text-primary h-5 w-5 shrink-0 mt-0.5" />
+                        <CheckCircle className="h-5 w-5 shrink-0 mt-0.5 text-[#ae8625]" />
                         <span className="text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
-                )}
+                ) : null}
               </CardContent>
             </Card>
           ))}
         </div>
 
         <div className="text-center mt-16" data-aos="fade-up">
-          <Button className="btn btn-primary group">
-            Explore All Services
+          <Button className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] text-black hover:bg-primary-100 group" onClick={() => navigate('/services/information-technology')}>
+            Explore Information Technology
             <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </Button>
         </div>
