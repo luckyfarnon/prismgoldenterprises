@@ -94,7 +94,7 @@ const HeroSection = () => {
               </Button>
             </div>
             <div className="mt-8">
-              <p className="text-primary-200 font-medium mb-3">Trusted by leading brands:</p>
+              <p className="text-white font-medium mb-3">Trusted by leading brands:</p>
               <div className="flex justify-start items-center">
                 <img src="/partner.png" alt="Partner Brand" className="h-15 w-full max-w-3xl sm:max-w-4xl md:max-w-4xl lg:max-w-4xl" />
               </div>

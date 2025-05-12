@@ -74,7 +74,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
               <img 
-                src="https://placehold.co/600x400/1A1F2C/ffffff?text=Our+Vision" 
+                src="vision.jpeg" 
                 alt="Company Vision" 
                 className="rounded-lg shadow-lg w-full object-cover"
               />
@@ -133,7 +133,7 @@ const About = () => {
                 </div>
                 <div className="pl-8">
                   <img 
-                    src="https://placehold.co/400x300/1A1F2C/ffffff?text=2010+Founding" 
+                    src="2010.jpeg" 
                     alt="Company Founding" 
                     className="rounded-lg shadow-lg w-full object-cover"
                   />
@@ -151,7 +151,7 @@ const About = () => {
                 </div>
                 <div className="md:order-1 pr-8">
                   <img 
-                    src="https://placehold.co/400x300/1A1F2C/ffffff?text=2015+Expansion" 
+                    src="2015.jpeg" 
                     alt="International Expansion" 
                     className="rounded-lg shadow-lg w-full object-cover"
                   />
@@ -169,7 +169,7 @@ const About = () => {
                 </div>
                 <div className="pl-8">
                   <img 
-                    src="https://placehold.co/400x300/1A1F2C/ffffff?text=2020+Digital+Era" 
+                    src="2020.jpeg" 
                     alt="Digital Transformation" 
                     className="rounded-lg shadow-lg w-full object-cover"
                   />
@@ -187,7 +187,7 @@ const About = () => {
                 </div>
                 <div className="md:order-1 pr-8">
                   <img 
-                    src="https://placehold.co/400x300/1A1F2C/ffffff?text=2025+Future+Vision" 
+                    src="2025.jpeg" 
                     alt="Future Vision" 
                     className="rounded-lg shadow-lg w-full object-cover"
                   />
@@ -206,20 +206,15 @@ const About = () => {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-8">
             {[
-              { name: 'Fran Wilson', img: '/team1.jpg', socials: ['fb', 'tw', 'li', 'yt'] },
-              { name: 'Adam Smith', img: '/team2.jpg', socials: ['fb', 'tw', 'li', 'yt'] },
-              { name: 'Sarah Glenn', img: '/team3.jpg', socials: ['fb', 'tw', 'li', 'yt'] },
-              { name: 'Chris Woakes', img: '/team4.jpg', socials: ['fb', 'tw', 'li', 'yt'] },
+              { name: 'Fran Wilson', img: '/pic-1.jpeg', designation: 'Director Operation' },
+              { name: 'Adam Smith', img: '/pic-2.jpeg', designation: 'CEO' },
+              { name: 'Sarah Glenn', img: '/pic-3.jpeg', designation: 'Director business development' },
+              { name: 'Chris Woakes', img: '/pic-4.jpeg', designation: 'Designation' },
             ].map((member, idx) => (
               <div key={idx} className="bg-[#f7f8fa] rounded-xl shadow-md flex flex-col items-center p-6 animate-fadeInUp max-w-sm w-full mx-auto" data-aos="fade-up" data-aos-delay={idx * 80}>
                 <img src={member.img} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-4" />
                 <div className="font-semibold text-lg mb-2">{member.name}</div>
-                <div className="flex gap-4">
-                  {member.socials.includes('fb') && <a href="#" className="text-[#3b5998] hover:scale-110 transition-transform"><FaFacebookF /></a>}
-                  {member.socials.includes('tw') && <a href="#" className="text-[#1da1f2] hover:scale-110 transition-transform"><FaTwitter /></a>}
-                  {member.socials.includes('li') && <a href="#" className="text-[#0077b5] hover:scale-110 transition-transform"><FaLinkedinIn /></a>}
-                  {member.socials.includes('yt') && <a href="#" className="text-[#ff0000] hover:scale-110 transition-transform"><FaYoutube /></a>}
-                </div>
+                <p className="text-gray-500 text-sm mb-2">{member.designation}</p>
               </div>
             ))}
           </div>

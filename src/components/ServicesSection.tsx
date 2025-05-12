@@ -51,8 +51,7 @@ const ServicesSection = () => {
           <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Information Technology Services</h2>
           <h3 className="heading-lg mb-6">Tailored to Your Business Goals</h3>
           <p className="text-muted-foreground text-lg">
-            Our comprehensive suite of digital marketing services helps businesses grow their online presence,
-            engage with their audience, and drive measurable results.
+          Prism Gold Enterprises offers smart and effective Information Technology solutions tailored to your business goals. From web development to digital marketing, Prism helps you grow online, connect with your audience, and achieve lasting results.
           </p>
         </div>
 

@@ -51,7 +51,7 @@ const ImportAndExportSection = () => {
           <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Import & Export Services</h2>
           <h3 className="heading-lg text-white mb-6">Tailored to Your Global Trade Needs</h3>
           <p className="text-muted-foreground text-lg">
-            Our comprehensive suite of import and export services helps businesses expand globally, streamline logistics, and ensure compliance with international regulations.
+          Prism Gold Enterprises delivers reliable Import & Export solutions to simplify global trade. We help businesses expand across borders with efficient logistics and full regulatory compliance.
           </p>
         </div>
 

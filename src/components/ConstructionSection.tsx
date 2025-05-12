@@ -51,7 +51,7 @@ const ConstructionSection = () => {
           <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Construction Services</h2>
           <h3 className="heading-lg mb-6">Tailored to Your Building Needs</h3>
           <p className="text-muted-foreground text-lg">
-            Our comprehensive suite of construction services helps businesses and individuals build, renovate, and maintain structures that meet their needs and exceed expectations.
+          Prism Gold Enterprises provides expert Construction Services designed to meet your building goals. From planning to completion, we ensure quality, durability, and client satisfaction at every step.
           </p>
         </div>
 
