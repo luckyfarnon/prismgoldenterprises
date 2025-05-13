@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="container-wide flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="text-2xl font-bold flex items-center">
-            <img src="/public/prismLogo.png" alt="Logo" height={350} width={350} />
+            <img src="/images/prismLogo.png" alt="Logo" height={350} width={350} />
           </Link>
         </div>
 
