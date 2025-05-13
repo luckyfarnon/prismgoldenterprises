@@ -4,21 +4,21 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Digital Silk transformed our online presence. Their strategic approach to SEO and content marketing helped us increase our organic traffic by 250% in just 6 months.",
+    quote: "Prism transformed our online presence. Their strategic approach to SEO and content marketing helped us increase our organic traffic by 250% in just 6 months.",
     author: "Sarah Johnson",
     position: "Marketing Director",
     company: "TechCorp Inc.",
     avatar: "https://placehold.co/100x100/1A1F2C/ffffff?text=SJ"
   },
   {
-    quote: "The ROI we've seen from Digital Silk's paid media campaigns has been exceptional. They truly understand our business goals and deliver measurable results.",
+    quote: "The ROI we've seen from Prism's paid media campaigns has been exceptional. They truly understand our business goals and deliver measurable results.",
     author: "Michael Chen",
     position: "CEO",
     company: "Innovate Solutions",
     avatar: "https://placehold.co/100x100/1A1F2C/ffffff?text=MC"
   },
   {
-    quote: "Working with Digital Silk has been a game-changer for our brand. Their creative approach to social media has helped us build a loyal community and increase engagement by 300%.",
+    quote: "Working with Prism has been a game-changer for our brand. Their creative approach to social media has helped us build a loyal community and increase engagement by 300%.",
     author: "Emily Rodriguez",
     position: "Brand Manager",
     company: "Lifestyle Brands",
@@ -75,7 +75,7 @@ const TestimonialsSection = () => {
         <h2 className="heading-xl mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">What Our Clients Say</h2>
           <h2 className="heading-lg mb-4"></h2>
           <p className="text-muted-foreground text-lg">
-            Don't just take our word for it. Here's what our clients have to say about working with Digital Silk.
+            Don't just take our word for it. Here's what our clients have to say about working with Prism.
           </p>
         </div>
 

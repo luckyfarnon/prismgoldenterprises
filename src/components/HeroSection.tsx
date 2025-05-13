@@ -54,8 +54,7 @@ const HeroSection = () => {
               <span style={{ letterSpacing: '0.10em' }} className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] bg-clip-text text-transparent">Prism Gold Enterprises</span>
             </h1>
             <p className="text-white text-lg mb-6 opacity-90 max-w-xl leading-relaxed">
-              Our data-driven digital marketing strategies deliver measurable results. 
-              We combine creativity with performance to help your business thrive in the competitive digital landscape.
+            From navigating global trade and building future-ready infrastructure to accelerating growth with innovative digital services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button

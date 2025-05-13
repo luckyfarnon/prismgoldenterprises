@@ -40,6 +40,15 @@ export default {
 					700: '#6E59A5',
 					800: '#553C9A',
 					900: '#44337A',
+					'73a302': '#73a302',
+					'517700': '#517700',
+					'004f8c': '#004f8c',
+					'3e8dc1': '#3e8dc1',
+					'5c5c5c': '#5c5c5c',
+					'828282': '#828282',
+					'bd8a2a': '#bd8a2a',
+					'f0d865': '#f0d865',
+					'618d3c': '#618D3C',
 				},
 				secondary: {
 					DEFAULT: '#1A1F2C',
@@ -74,6 +83,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'],
+				dutch: ['Amsterdam', 'serif'],
 			},
 			keyframes: {
 				"accordion-down": {
@@ -125,6 +135,10 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'linear-gradient(90deg, #000000 0%, #222222 100%)',
 				'gradient-dark': 'linear-gradient(90deg, #1A1F2C 0%, #2D3748 100%)',
+				'gradient-fresh-green': 'linear-gradient(90deg, #618D3C 0%,rgb(85, 125, 52)',
+				'gradient-ocean-blue': 'linear-gradient(90deg, #004f8c 0%, #3e8dc1 100%)',
+				'gradient-silver-gray': 'linear-gradient(90deg, #5c5c5c 0%, #828282 100%)',
+				'gradient-sunset-gold': 'linear-gradient(90deg, #bd8a2a 0%, #f0d865 100%)',
 			},
 		}
 	},

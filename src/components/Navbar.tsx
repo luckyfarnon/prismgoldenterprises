@@ -134,7 +134,7 @@ const Navbar = () => {
   <div className="hidden xl:flex items-center gap-4">
     <a href="tel:+11234567890" className="flex items-center gap-2 text-white hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors duration-200">
       <Phone className="h-4 w-4" />
-      <span>(123) 456-7890</span>
+      <span>021-36930725</span>
     </a>
     <Button className="bg-gradient-to-r from-[#ae8625] via-[#f7ef8a] to-[#edc967] text-black">Get a Quote</Button>
   </div>

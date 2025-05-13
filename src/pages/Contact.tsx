@@ -212,7 +212,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
                     <p className="text-gray-700 duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors">
-                      <a href="mailto:info@example.com">info@example.com</a>
+                      <a href="mailto:info@example.com">info@prismgoldenterprises.com</a>
                     </p>
                   </div>
                 </div>
@@ -224,7 +224,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Phone</h3>
                     <p className="text-gray-700 duration-200 group hover:text-transparent hover:bg-gradient-to-r hover:from-[#ae8625] hover:via-[#ae8625] hover:to-[#edc967] hover:bg-clip-text transition-colors">
-                      <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                      <a href="tel:+11234567890">021-36930725</a>
                     </p>
                   </div>
                 </div>
@@ -236,8 +236,9 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg">Location</h3>
                     <p className="text-gray-700">
-                      123 Business Avenue, Suite 100<br />
-                      New York, NY 10001
+                      R-18 sector 10 <br />
+                      North karachi pakistan
+                      
                     </p>
                   </div>
                 </div>

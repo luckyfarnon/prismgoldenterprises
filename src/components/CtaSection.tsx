@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -54,7 +53,8 @@ const CtaSection = () => {
           <div data-aos="fade-right">
             <h2 className="heading-lg mb-4 bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Ready to Grow Your Business?</h2>
             <p className="text-lg mb-8 opacity-90 max-w-xl">
-              Let's discuss how our digital marketing services can help you achieve your business goals. 
+              Let's discuss how we can support your business goals <br/>
+              across IT, Import/Export, and Construction. <br/>
               Fill out the form and we'll be in touch shortly.
             </p>
             
@@ -65,7 +65,7 @@ const CtaSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold">Email Us</h4>
-                  <p className="opacity-90">hello@digitalsilk.com</p>
+                  <p className="opacity-90">info@prismgoldenenterprises.com</p>
                 </div>
               </div>
               
@@ -75,7 +75,7 @@ const CtaSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold">Call Us</h4>
-                  <p className="opacity-90">(123) 456-7890</p>
+                  <p className="opacity-90">021-36930725</p>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ const CtaSection = () => {
           </div>
           
           <div data-aos="fade-left">
-            <div className="bg-secondary rounded-lg shadow-xl p-8">
+            <div className="rounded-lg shadow-xl p-8" style={{ backgroundColor: '#232733' }}>
               <h3 className="text-2xl font-bold text-white mb-6">Get a Free Consultation</h3>
               
               <form onSubmit={handleSubmit} className="relative">

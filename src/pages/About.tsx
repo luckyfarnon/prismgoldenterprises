@@ -118,14 +118,14 @@ const About = () => {
           
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5" style={{ background: 'linear-gradient(180deg, #edc967 0%, #ae8625 50%, #edc967 100%)' }}></div>
             
             {/* Timeline Items */}
             <div className="space-y-24 relative z-10">
               {/* 2010 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
                 <div className="md:text-right pr-8">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2010</h3>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2019</h3>
                   <h4 className="text-xl font-semibold mb-3 text-white">Company Founded</h4>
                   <p className="text-muted-foreground">
                     Our company was established with a vision to provide exceptional services across multiple industries. What began as a small venture quickly evolved into a dynamic organization driven by innovation, integrity, and a passion for excellence. From day one, our goal has been to deliver reliable solutions tailored to the unique needs of our clients. <br/><br/> Over the years, we have expanded our capabilities and built a strong reputation in sectors such as import/export, construction, and strategic trading. Our commitment to quality, client satisfaction, and continuous improvement has positioned us as a trusted partner for businesses seeking growth and efficiency. Today, we continue to build on that foundation — stronger, smarter, and more focused than ever.
@@ -143,7 +143,7 @@ const About = () => {
               {/* 2015 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
                 <div className="md:order-2 md:text-left pl-8">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2015</h3>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2021</h3>
                   <h4 className="text-xl font-semibold mb-3 text-white">International Expansion</h4>
                   <p className="text-muted-foreground">
                     We expanded our operations globally, opening offices in Europe and Asia to serve our growing international client base. This strategic move allowed us to bring our services closer to key markets and respond more effectively to global demands. It marked a significant turning point in our journey toward becoming a truly global enterprise. <br/><br/> By establishing a presence in major economic hubs, we forged new partnerships, gained valuable market insights, and enhanced our ability to deliver culturally and regionally relevant solutions. Our international expansion not only broadened our footprint but also strengthened our commitment to delivering world-class service across borders.
@@ -161,7 +161,7 @@ const About = () => {
               {/* 2020 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
                 <div className="md:text-right pr-8">
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2020</h3>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#ae8625] bg-clip-text text-transparent mb-4">2023</h3>
                   <h4 className="text-xl font-semibold mb-3 text-white">Digital Transformation</h4>
                   <p className="text-muted-foreground">
                     We embraced the digital era by investing heavily in technology and innovation to provide cutting-edge solutions to our clients. Recognizing the shift in global business dynamics, we modernized our infrastructure, streamlined internal processes, and adopted advanced digital tools to stay ahead in a rapidly evolving market. <br/><br/> This transformation empowered us to enhance efficiency, improve client experiences, and offer more agile, data-driven services. From automation to cloud integration, our commitment to digital excellence has not only future-proofed our operations but also reinforced our position as a forward-thinking industry leader.
@@ -204,12 +204,11 @@ const About = () => {
           <div className="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
             <h2 className="heading-xl mb-4">Meet <span className="bg-gradient-to-r from-[#ae8625] via-[#ae8625] to-[#edc967] bg-clip-text text-transparent">Our Team</span></h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-y-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {[
-              { name: 'Fran Wilson', img: '/pic-1.jpeg', designation: 'Director Operation' },
-              { name: 'Adam Smith', img: '/pic-2.jpeg', designation: 'CEO' },
-              { name: 'Sarah Glenn', img: '/pic-3.jpeg', designation: 'Director business development' },
-              { name: 'Chris Woakes', img: '/pic-4.jpeg', designation: 'Designation' },
+              { name: 'Arshad Ali', img: '/pic-1.jpeg', designation: 'Director Operation' },
+              { name: 'Imran Ali Chaudhary', img: '/pic-2.jpeg', designation: 'CEO' },
+              { name: 'Danish Awan ', img: '/pic-3.jpeg', designation: 'Director business development' },
             ].map((member, idx) => (
               <div key={idx} className="bg-[#f7f8fa] rounded-xl shadow-md flex flex-col items-center p-6 animate-fadeInUp max-w-sm w-full mx-auto" data-aos="fade-up" data-aos-delay={idx * 80}>
                 <img src={member.img} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-4" />
