@@ -64,7 +64,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'End-to-End Import & Export Management',
         description: 'Our expert team handles all aspects of your international trade operations, from documentation and compliance to logistics and supply chain optimization.',
-        image: '/public/images/importexport.mp4',
+        image: '/images/importexport.mp4',
         features: [
           'Customs documentation and compliance',
           'International logistics coordination',
@@ -75,7 +75,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Strategic Trade Consulting',
         description: 'Leverage our global trade expertise to develop effective import and export strategies that maximize profits while minimizing risks and costs.',
-        image: '/public/images/trade.mp4',
+        image: '/images/trade.mp4',
         features: [
           'Market entry strategy development',
           'Tariff classification and valuation',
@@ -86,7 +86,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Digital Trade Solutions',
         description: 'Embrace the future of international trade with our cutting-edge digital solutions that streamline operations and enhance visibility across your supply chain.',
-        image: '/public/images/DigitalTrade.mp4',
+        image: '/images/DigitalTrade.mp4',
         features: [
           'Real-time shipment tracking',
           'Automated documentation processing',
@@ -97,7 +97,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Sustainable Trade Practices',
         description: 'Partner with us to implement environmentally conscious trade practices that align with global sustainability goals while maintaining operational efficiency.',
-        image: '/public/images/sustainable.mp4',
+        image: '/images/sustainable.mp4',
         features: [
           'Carbon footprint reduction',
           'Green logistics optimization',
@@ -166,22 +166,22 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Global Expansion for Tech Manufacturer',
         description: 'Helped a technology manufacturer expand into 12 new international markets with compliant import/export operations.',
-        image: '/public/images/tech.jpg'
+        image: '/images/tech.jpg'
       },
       {
         title: 'Supply Chain Optimization',
         description: 'Restructured international supply chain for a consumer goods company, reducing costs by 23% and delivery times by 40%.',
-        image: '/public/images/supply.jpg'
+        image: '/images/supply.jpg'
       },
       {
         title: 'Customs Compliance Overhaul',
         description: 'Implemented comprehensive customs compliance program for a manufacturing firm, eliminating penalties and reducing clearance delays.',
-        image: '/public/images/custom.jpg'
+        image: '/images/custom.jpg'
       },
       {
         title: 'Digital Transformation Success',
         description: 'Successfully digitized trade operations for a multinational corporation, reducing processing time by 60% and improving accuracy by 95%.',
-        image: '/public/images/digital-tranformation.jpg'
+        image: '/images/digital-tranformation.jpg'
       }
     ]
   },
@@ -193,7 +193,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Commercial Construction Management',
         description: 'From office buildings to retail spaces, we manage commercial construction projects with precision, ensuring on-time and on-budget delivery.',
-        image: '/public/images/Commercialcon.mp4',
+        image: '/images/Commercialcon.mp4',
         features: [
           'Project planning and scheduling',
           'Budget development and management',
@@ -204,7 +204,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Sustainable Building Solutions',
         description: 'We incorporate environmentally responsible practices and materials in our construction projects to create sustainable, energy-efficient buildings.',
-        image: '/public/images/SustainCon.mp4',
+        image: '/images/SustainCon.mp4',
         features: [
           'Green building certification support',
           'Energy-efficient design implementation',
@@ -217,12 +217,12 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Modern Office Complex',
         description: 'Designed and constructed a 50,000 sq ft office complex with state-of-the-art amenities and LEED Gold certification.',
-        image: '/public/images/modern.jpg'
+        image: '/images/modern.jpg'
       },
       {
         title: 'Residential Community Development',
         description: 'Completed a 120-unit residential community with sustainable features and community spaces on time and under budget.',
-        image: '/public/images/resident.jpg'
+        image: '/images/resident.jpg'
       }
     ]
   },
@@ -234,7 +234,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Web Development',
         description: 'We create modern, responsive, and user-friendly websites that help your business stand out online and connect with your audience effectively. Our web development services are tailored to your unique needs, ensuring a strong digital presence and measurable results.',
-        image: '/public/images/softwareDevelopment.jpg',
+        image: '/images/softwareDevelopment.jpg',
         features: [
           'Custom website design and development',
           'Responsive & mobile-friendly websites',
@@ -247,7 +247,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Graphic Designing',
         description: 'Our creative team delivers eye-catching and impactful graphic design solutions that elevate your brand identity. From logos to marketing materials, we ensure your visuals leave a lasting impression and communicate your message effectively.',
-        image: '/public/images/graphic.jpg', // You can update this to a graphic design image if available
+        image: '/images/graphic.jpg', // You can update this to a graphic design image if available
         features: [
           'Logo & brand identity design',
           'Business cards & stationery',
@@ -260,7 +260,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'E-Commerce Development',
         description: 'Grow your business with a powerful online store. We build secure, scalable, and user-friendly e-commerce solutions with seamless payment integration, order management, and built-in marketing & SEO tools to help you succeed online.',
-        image: '/public/images/ecommerce.jpg', // Update this path if you have a specific e-commerce image
+        image: '/images/ecommerce.jpg', // Update this path if you have a specific e-commerce image
         features: [
           'Custom online store development',
           'Payment gateway integration',
@@ -274,7 +274,7 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Digital Marketing',
         description: 'Boost your online presence and reach your target audience with our comprehensive digital marketing services. We offer expert solutions in SEM, paid advertising, social media marketing, and SEO to help your business grow and succeed in the digital world.',
-        image: '/public/images/digital-tranformation.jpg', // Update this path if you have a specific digital marketing image
+        image: '/images/digital-tranformation.jpg', // Update this path if you have a specific digital marketing image
         features: [
           'Search Engine Marketing (SEM)',
           'Paid advertising (Google Ads, Facebook Ads, etc.)',
@@ -289,17 +289,17 @@ const serviceData: Record<string, ServiceData> = {
       {
         title: 'Banking Platform Modernization',
         description: 'Transformed a legacy banking system into a modern, cloud-native platform, improving performance by 300% and enhancing security posture.',
-        image: '/public/images/bank.jpg'
+        image: '/images/bank.jpg'
       },
       {
         title: 'Healthcare Data Analytics Solution', // Renamed
         description: 'Developed an integrated data analytics solution improving patient outcome predictions and streamlining operations across 15 facilities.', // Updated description
-        image: '/public/images/health.jpg'
+        image: '/images/health.jpg'
       },
       {
         title: 'Scalable E-Commerce Platform', // Renamed
         description: 'Engineered a high-performance, scalable e-commerce platform supporting 5M+ users, increasing sales by 150% and reducing operational costs.', // Updated description
-        image: '/public/images/ecommerce.jpg'
+        image: '/images/ecommerce.jpg'
       }
     ]
   }
@@ -404,7 +404,7 @@ const ServicePage = ({ serviceType }: ServicePageProps) => {
        }
      } else {
        // Original logic for other services
-       bgColorClass = section.image === '/public/images/DigitalTrade.mp4' ? 'bg-black' : (index === 0 ? 'bg-black' : (index % 2 === 0 ? 'bg-white' : 'bg-gray-50'));
+       bgColorClass = section.image === '/images/DigitalTrade.mp4' ? 'bg-black' : (index === 0 ? 'bg-black' : (index % 2 === 0 ? 'bg-white' : 'bg-gray-50'));
      }
 
     // Determine text colors based on background and service type
@@ -598,9 +598,9 @@ const ServicePage = ({ serviceType }: ServicePageProps) => {
                 style={{ pointerEvents: 'none' }}
                 // Use different videos per service type
                 src={
-                    serviceType === 'information-technology' ? "/public/images/it-vid.mp4" :
-                    serviceType === 'construction' ? "/public/images/con2.mp4" :
-                    "/public/images/imp.mp4" // Default import/export
+                    serviceType === 'information-technology' ? "/images/it-vid.mp4" :
+                    serviceType === 'construction' ? "/images/con2.mp4" :
+                    "/images/imp.mp4" // Default import/export
                 }
                  key={serviceType} // Force re-render on service type change
             >
@@ -773,13 +773,13 @@ const ServicePage = ({ serviceType }: ServicePageProps) => {
                 <p className="text-lg text-white mb-8 text-center max-w-2xl">See how Prism is transforming global trade with innovation, technology, and a commitment to a sustainable future. Watch our story in action!</p>
                 <div className="w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl border-2 border-primary-618d3c bg-black"> {/* Kept green */}
                   <video
-                    src="/public/images/MissionVideo.mp4"
+                    src="/images/MissionVideo.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
                     className="w-full h-[400px] object-cover"
-                    poster="/public/images/vision-poster.jpg"
+                    poster="/images/vision-poster.jpg"
                   />
                 </div>
               </section>
@@ -837,13 +837,13 @@ const ServicePage = ({ serviceType }: ServicePageProps) => {
                 <p className="text-lg text-white mb-8 text-center max-w-2xl">See how Prism is transforming construction with innovation, technology, and a commitment to a sustainable future. Watch our story in action!</p>
                 <div className="w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl border-2 border-primary-bd8a2a bg-black"> {/* Keep yellow border */}
                   <video
-                    src="/public/images/conVission.mp4"
+                    src="/images/conVission.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
                     className="w-full h-[400px] object-cover"
-                    poster="/public/images/construction-vision-poster.jpg"
+                    poster="/images/construction-vision-poster.jpg"
                   />
                 </div>
               </section>

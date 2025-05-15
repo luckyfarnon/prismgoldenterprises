@@ -51,8 +51,8 @@ const workData = {
         ]
     },
     testimonials: [ /* ... (as before) ... */ 
-        { quote: "Their strategic approach to international markets was a game-changer for our expansion. Highly recommend!", author: "Sarah Chen", company: "CEO, TechInnovate Inc.", image: "/public/testi.jpg" },
-        { quote: "Navigating customs can be a nightmare, but they made it seamless and efficient for us.", author: "John B. Goode", company: "Operations Director, Manufacturing Plus", image: "/public/testi2.jpg" }
+        { quote: "Their strategic approach to international markets was a game-changer for our expansion. Highly recommend!", author: "Sarah Chen", company: "CEO, TechInnovate Inc.", image: "/testi.jpg" },
+        { quote: "Navigating customs can be a nightmare, but they made it seamless and efficient for us.", author: "John B. Goode", company: "Operations Director, Manufacturing Plus", image: "/testi2.jpg" }
     ],
     
     uniqueApproach: { /* ... (as before) ... */ 
@@ -111,8 +111,8 @@ const workData = {
         ]
     },
     testimonials: [ /* ... (as before) ... */ 
-        { quote: "The quality of their construction work is outstanding. They delivered our office complex ahead of schedule!", author: "Michael T.", company: "CEO, TechCorp Enterprises", image: "/public/testi.jpg" },
-        { quote: "Professional, reliable, and their attention to detail is second to none. Our new facility is perfect.", author: "Laura P.", company: "Director, Advanced Manufacturing Inc.", image: "/public/testi2.jpg" }
+        { quote: "The quality of their construction work is outstanding. They delivered our office complex ahead of schedule!", author: "Michael T.", company: "CEO, TechCorp Enterprises", image: "/testi.jpg" },
+        { quote: "Professional, reliable, and their attention to detail is second to none. Our new facility is perfect.", author: "Laura P.", company: "Director, Advanced Manufacturing Inc.", image: "/testi2.jpg" }
     ],
     
     uniqueApproach: { /* ... (as before) ... */ 
@@ -172,8 +172,8 @@ const workData = {
         ]
     },
     testimonials: [ /* ... (as before) ... */ 
-        { quote: "Prism IT revolutionized our banking platform. The performance gains and new features are incredible.", author: "David Lee", company: "CTO, Global Financial Services", image: "/public/testi.jpg" },
-        { quote: "The custom CRM they built for us has boosted our customer retention by over 40%. Exceptional team!", author: "Anita Singh", company: "VP Sales, Global Services Inc.", image: "/public/testi2.jpg" }
+        { quote: "Prism IT revolutionized our banking platform. The performance gains and new features are incredible.", author: "David Lee", company: "CTO, Global Financial Services", image: "/testi.jpg" },
+        { quote: "The custom CRM they built for us has boosted our customer retention by over 40%. Exceptional team!", author: "Anita Singh", company: "VP Sales, Global Services Inc.", image: "/testi2.jpg" }
     ],
   
     uniqueApproach: { /* ... (as before) ... */ 
@@ -235,7 +235,7 @@ const WorkPage = ({ workType }: WorkPageProps) => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
             style={{ pointerEvents: 'none' }}
-            src="/public/images/workIT.mp4"
+            src="/images/workIT.mp4"
           >
             Your browser does not support the video tag.
           </video>
@@ -249,7 +249,7 @@ const WorkPage = ({ workType }: WorkPageProps) => {
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0 opacity-90"
             style={{ pointerEvents: 'none' }}
-            src={workType === 'construction' ? '/public/images/ConImp.mp4' : '/images/workImp.mp4'}
+            src={workType === 'construction' ? '/images/ConImp.mp4' : '/images/workImp.mp4'}
           >
             Your browser does not support the video tag.
           </video>
